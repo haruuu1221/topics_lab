@@ -90,6 +90,9 @@ export default {
       width: 100%;
     }
   }
+  span {
+    color: red;
+  }
   .register {
     text-align: center;
     padding-top: 20px;
