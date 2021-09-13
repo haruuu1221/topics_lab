@@ -90,5 +90,6 @@ export default {
 }
 span{
   color:red;
+  font-size: 20px;
 }
 </style>
