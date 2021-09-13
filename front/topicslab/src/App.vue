@@ -8,9 +8,11 @@
       <router-link to="/login">login</router-link>
     </template>
   </div>
+
   <div class="content">
     <router-view/>
   </div>
+  <div class="copyright">&copy;2021 topicslab</div>
 </template>
 
 <script>
@@ -66,5 +68,10 @@ body {
       color: #42b983;
     }
   }
+}
+
+.copyright{
+  font-size: 20px;
+  text-align: center;
 }
 </style>
