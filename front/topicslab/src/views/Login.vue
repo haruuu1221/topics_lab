@@ -19,6 +19,9 @@
         <div class="p-field">
           <Button icon="pi pi-check" label="Login" v-on:click="login" />
         </div>
+        <div class="register">
+          <router-link to="/login">ユーザー登録はこちら</router-link>
+        </div>
       </template>
     </Card>
   </div>
@@ -87,9 +90,9 @@ export default {
       width: 100%;
     }
   }
-}
-span{
-  color:red;
-  font-size: 20px;
+  .register {
+    text-align: center;
+    padding-top: 20px;
+  }
 }
 </style>
