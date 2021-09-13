@@ -2,17 +2,20 @@
   <div>
     <Card>
       <template #title>
-        {{topic.title}}
+        <span>{{topic.title}}</span>
       </template>
       <template #content>
         <div class="body-text">
-          {{topic.body}}
+          <span>{{topic.body}}</span>
         </div>
       </template>
       <template #footer>
         <span>
           <router-link :to="`/user/${user.id}`">{{user.name}}</router-link>
         </span>
+        <div class="button">
+          <Button icon="pi pi-heart" class="p-button-rounded p-button-help p-mr-2 p-mb-2" />
+        </div>
       </template>
     </Card>
     <Comments :comments="this.comments" />
@@ -83,5 +86,8 @@ export default {
 .p-card-footer span {
   text-align: right;
   display: block;
+}
+span {
+  color: red;
 }
 </style>
