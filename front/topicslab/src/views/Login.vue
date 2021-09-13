@@ -88,4 +88,7 @@ export default {
     }
   }
 }
+span{
+  color:red;
+}
 </style>
