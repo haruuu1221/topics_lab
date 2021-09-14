@@ -73,6 +73,7 @@ export default {
             .catch((err) => {
               console.log(err)
               this.messages.submit = '送信に失敗しました。'
+              alert(err)
             })
         })
         .catch((err) => {

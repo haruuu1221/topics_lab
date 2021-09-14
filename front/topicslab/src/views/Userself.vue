@@ -49,6 +49,7 @@ export default {
             })
             .catch(err => {
               console.log(err)
+              alert(err)
             })
         })
         .catch((err) => {
@@ -67,6 +68,7 @@ export default {
                 this.user = res.data
               } else {
                 console.log('取得失敗')
+                alert(err)
               }
             })
         })
