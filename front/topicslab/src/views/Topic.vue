@@ -2,11 +2,11 @@
   <div>
     <Card>
       <template #title>
-        <span>{{topic.title}}</span>
+        {{topic.title}}
       </template>
       <template #content>
         <div class="body-text">
-          <span>{{topic.body}}</span>
+          {{topic.body}}
         </div>
       </template>
       <template #footer>
@@ -87,7 +87,8 @@ export default {
   text-align: right;
   display: block;
 }
-span {
-  color: red;
+.button {
+  text-align: right;
+  margin-top: 10px;
 }
 </style>
