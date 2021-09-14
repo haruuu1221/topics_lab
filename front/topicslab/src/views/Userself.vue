@@ -68,7 +68,6 @@ export default {
                 this.user = res.data
               } else {
                 console.log('取得失敗')
-                alert(err)
               }
             })
         })
