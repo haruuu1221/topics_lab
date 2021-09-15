@@ -3,7 +3,7 @@
     <Card>
       <template #content>
         {{user.name}}
-        <!-- <Tabmenu /> -->
+        <!-- <Tabmenu/> -->
       </template>
     </Card>
   </div>
@@ -26,7 +26,7 @@ export default {
   },
   mounted () {
     if (localStorage.getItem('authenticated') !== 'true') {
-      this.$router.push('login')
+      this.$router.push('../login')
       return
     }
 
