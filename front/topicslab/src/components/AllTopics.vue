@@ -10,6 +10,7 @@
           </h2>
         </template>
     </Card>
+    <Skeleton v-if="seen" height="150px" />
   </div>
 </template>
 
@@ -21,7 +22,8 @@ export default {
   name: 'AllTopics',
   data () {
     return {
-      topics: []
+      topics: [],
+      seen: true
     }
   },
   mounted () {
@@ -39,6 +41,7 @@ export default {
               if (res.status === 200) {
                 this.topics.splice(0)
                 this.topics.push(...res.data)
+                this.seen = false
               } else {
                 console.log('取得失敗')
               }

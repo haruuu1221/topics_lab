@@ -3,7 +3,7 @@
     <Card>
       <template #content>
         {{user.name}}
-        <Tabmenu />
+        <!-- <Tabmenu /> -->
       </template>
     </Card>
   </div>
@@ -11,13 +11,13 @@
 
 <script>
 import axios from '@/supports/axios'
-import Tabmenu from '@/components/Tabmenu'
+// import Tabmenu from '@/components/Tabmenu'
 
 export default {
   name: 'user',
-  components: {
-  Tabmenu
-  },
+  // components: {
+  // Tabmenu
+  // },
   data () {
     return {
       id: null,
