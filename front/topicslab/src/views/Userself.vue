@@ -6,6 +6,7 @@
       </template>
       <template #content>
         {{user.name}}
+        <Tabmenu />
       </template>
       <template #footer>
         <Button label="Create Topic" v-on:click="toNewTopic" />
@@ -18,9 +19,13 @@
 
 <script>
 import axios from '@/supports/axios'
+import Tabmenu from '@/components/Tabmenu'
 
 export default {
   name: 'Userself',
+  components: {
+    Tabmenu
+  },
   data () {
     return {
       user: {}
