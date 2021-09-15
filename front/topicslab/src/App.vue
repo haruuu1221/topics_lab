@@ -1,5 +1,4 @@
 <template>
-<div>
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <template v-if="authenticated">
@@ -14,7 +13,6 @@
     <router-view/>
   </div>
   <div class="copyright">&copy;2021 topicslab</div>
-  </div>
 </template>
 
 <script>

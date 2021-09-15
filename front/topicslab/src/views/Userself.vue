@@ -6,6 +6,7 @@
       </template>
       <template #content>
         {{user.name}}
+        <Tabmenu />
       </template>
       <template #footer>
         <Button label="Create Topic" v-on:click="toNewTopic" />
@@ -18,9 +19,13 @@
 
 <script>
 import axios from '@/supports/axios'
+import Tabmenu from '@/components/Tabmenu'
 
 export default {
   name: 'Userself',
+  components: {
+    Tabmenu
+  },
   data () {
     return {
       user: {}
@@ -57,22 +62,7 @@ export default {
         })
     },
     withdraw () {
-      axios.get('/sanctum/csrf-cookie')
-        .then(() => {
-          axios.post('/api/logout')
-            .then(res => {
-              console.log(res)
-              localStorage.setItem('authenticated', 'false')
-              this.$router.push('/')
-            })
-            .catch(err => {
-              console.log(err)
-              alert(err)
-            })
-        })
-        .catch((err) => {
-          alert(err)
-        })
+      //
     },
     getUser () {
       axios.get('/sanctum/csrf-cookie')
