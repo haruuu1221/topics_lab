@@ -35,7 +35,16 @@ class TopicLikeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $topic = Topic::find($request->topicId);
+        $user = $request->user();
+
+        $topicLike = new TopicLike;
+        $topicLike->user()->associate($user);
+        $topicLike->topic()->associate($topic);
+
+        $topicLike->save();
+
+        return $topic;
     }
 
     /**
