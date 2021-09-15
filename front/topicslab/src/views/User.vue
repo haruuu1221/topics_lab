@@ -3,6 +3,7 @@
     <Card>
       <template #content>
         {{user.name}}
+        <Skeleton v-if="seen" />
         <Tabmenu />
       </template>
     </Card>
@@ -11,17 +12,18 @@
 
 <script>
 import axios from '@/supports/axios'
-import Tabmenu from '@/components/Tabmenu'
+import Tabmenu from '@/components/Tabmenu'/* eslint-disable */
 
 export default {
   name: 'user',
   components: {
-  Tabmenu
+  Tabmenu/* eslint-disable */
   },
   data () {
     return {
       id: null,
-      user: {}
+      user: {},
+      seen: true
     }
   },
   mounted () {
@@ -45,6 +47,7 @@ export default {
               console.log(res)
               if (res.status === 200) {
                 this.user = res.data
+                this.seen = false
               } else {
                 console.log('取得失敗')
               }
