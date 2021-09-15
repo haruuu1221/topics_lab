@@ -6,6 +6,7 @@
       </template>
       <template #content>
         {{user.name}}
+        <Skeleton v-if="seen" />
       </template>
       <template #footer>
         <Button label="Create Topic" v-on:click="toNewTopic" />
@@ -23,7 +24,8 @@ export default {
   name: 'Userself',
   data () {
     return {
-      user: {}
+      user: {},
+      seen: true
     }
   },
   mounted () {
@@ -57,7 +59,22 @@ export default {
         })
     },
     withdraw () {
-      //
+      axios.get('/sanctum/csrf-cookie')
+        .then(() => {
+          axios.post('/api/logout')
+            .then(res => {
+              console.log(res)
+              localStorage.setItem('authenticated', 'false')
+              this.$router.push('/')
+            })
+            .catch(err => {
+              console.log(err)
+              alert(err)
+            })
+        })
+        .catch((err) => {
+          alert(err)
+        })
     },
     getUser () {
       axios.get('/sanctum/csrf-cookie')
@@ -66,6 +83,7 @@ export default {
             .then((res) => {
               if (res.status === 200) {
                 this.user = res.data
+                this.seen = false
               } else {
                 console.log('取得失敗')
               }

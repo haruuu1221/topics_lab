@@ -7,6 +7,9 @@
       <template #content>
         <div class="body-text">
           {{topic.body}}
+          <Skeleton v-if="seen" height="40px" style="margin-bottom:20px" />
+          <Skeleton v-if="seen" />
+          <Skeleton v-if="seen" width="40px" style="margin:10px;float:right" />
         </div>
       </template>
       <template #footer>
@@ -39,13 +42,18 @@ export default {
       topic: {},
       user: {},
       comments: [],
-      id: null
+      id: null,
+      seen: true
     }
   },
   mounted () {
     this.id = this.$route.params.id
     if (!this.id) {
       alert('不正なIDです。')
+    }
+    if (localStorage.getItem('authenticated') !== 'true') {
+      this.$router.push('../login')
+      return
     }
     this.getTopic()
   },
@@ -60,6 +68,7 @@ export default {
                 this.user = this.topic.user
                 this.comments.splice(0)
                 this.comments.push(...this.topic.comments)
+                this.seen = false
               } else {
                 console.log('取得失敗')
               }

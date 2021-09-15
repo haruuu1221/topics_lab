@@ -3,25 +3,30 @@
     <Card>
       <template #content>
         {{user.name}}
+        <Skeleton v-if="seen" />
       </template>
     </Card>
+
   </div>
 </template>
 
 <script>
 import axios from '@/supports/axios'
+import Skeleton from 'primevue/skeleton/Skeleton.vue'
 
 export default {
+  components: { Skeleton },
   name: 'user',
   data () {
     return {
       id: null,
-      user: {}
+      user: {},
+      seen: true
     }
   },
   mounted () {
     if (localStorage.getItem('authenticated') !== 'true') {
-      this.$router.push('login')
+      this.$router.push('../login')
       return
     }
 
@@ -40,6 +45,7 @@ export default {
               console.log(res)
               if (res.status === 200) {
                 this.user = res.data
+                this.seen = false
               } else {
                 console.log('取得失敗')
               }
