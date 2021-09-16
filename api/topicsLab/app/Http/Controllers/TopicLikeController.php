@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TopicLike;
+use App\Models\Topic;
 use Illuminate\Http\Request;
 
 class TopicLikeController extends Controller
@@ -41,7 +42,6 @@ class TopicLikeController extends Controller
         $topicLike = new TopicLike;
         $topicLike->user()->associate($user);
         $topicLike->topic()->associate($topic);
-
         $topicLike->save();
 
         return $topic;

@@ -18,7 +18,7 @@
           <Skeleton v-if="seen" style="width: 60px;float: right"/>
         </span>
         <div class="button">
-          <Button icon="pi pi-heart" class="p-button-rounded p-button-help p-mr-2 p-mb-2" />
+          <Button icon="pi pi-heart" class="p-button-rounded p-button-help p-mr-2 p-mb-2"  v-on:click="likeSubmit"/>
         </div>
       </template>
     </Card>
@@ -56,6 +56,29 @@ export default {
     this.getTopic()
   },
   methods: {
+    likeSubmit () {
+      axios.get('/sanctum/csrf-cookie')
+        .then(() => {
+          axios.post('/api/topiclike', {
+            topicId: this.id
+          })
+            .then((res) => {
+              if (res.status === 201) {
+                this.$emit('sentComment', res.data)
+              } else {
+                this.message = '送信に失敗しました。'
+              }
+            })
+            .catch((err) => {
+              console.log(err)
+              this.message = '送信に失敗しました。'
+              alert(err)
+            })
+        })
+        .catch((err) => {
+          alert(err)
+        })
+    },
     getTopic () {
       axios.get('/sanctum/csrf-cookie')
         .then(() => {
