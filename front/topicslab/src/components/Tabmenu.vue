@@ -11,7 +11,12 @@
           </h2>
         </template>
     </Card>
-    <Skeleton v-if="seen" height="150px" />
+    <Card v-if="seen">
+    <template #content>
+      <Skeleton width="200px" style="margin-bottom:10px"/>
+      <Skeleton height="50px"/>
+    </template>
+    </Card>
       </TabPanel>
       <TabPanel header="コメント">
         コメント
