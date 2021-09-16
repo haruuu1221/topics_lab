@@ -6,6 +6,7 @@
       </template>
       <template #content>
         {{user.name}}
+        <Skeleton v-if="seen" />
         <Tabmenu />
       </template>
       <template #footer>
@@ -28,7 +29,8 @@ export default {
   },
   data () {
     return {
-      user: {}
+      user: {},
+      seen: true
     }
   },
   mounted () {
@@ -71,6 +73,7 @@ export default {
             .then((res) => {
               if (res.status === 200) {
                 this.user = res.data
+                this.seen = false
               } else {
                 console.log('取得失敗')
               }

@@ -13,6 +13,7 @@ import 'primeicons/primeicons.css'
 import router from './router'
 import TabView from 'primevue/tabview'
 import TabPanel from 'primevue/tabpanel'
+import Skeleton from 'primevue/skeleton'
 
 // import 'primeflex/primeflex.css'
 // import 'primeflex/src/_variables.scss'
@@ -35,3 +36,4 @@ app.component('Fieldset', Fieldset)
 app.component('Textarea', Textarea)
 app.component('TabView', TabView)
 app.component('TabPanel', TabPanel)
+app.component('Skeleton', Skeleton)
