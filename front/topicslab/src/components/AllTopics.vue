@@ -8,6 +8,7 @@
               {{topic.title}}
             </router-link>
           </h2>
+
         </template>
     </Card>
     <Card v-if="seen">

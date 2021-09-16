@@ -5,8 +5,8 @@
     <Card v-for="user in users" :key="user.id">
         <template #content>
           <h2>
-            <router-link :to="`/topic/${user.id}`">
-              {{ user.name }}
+            <router-link :to="`/topic/${this.id}`">
+              {{user.name}}
             </router-link>
           </h2>
         </template>
@@ -38,12 +38,16 @@ export default {
   },
   mounted () {
     this.getTabmenu()
+    this.id = this.$route.params.id
+    if (!this.id) {
+      alert('不正なIDです。')
+    }
   },
   methods: {
     getTabmenu () {
       axios.get('/sanctum/csrf-cookie')
         .then(() => {
-          axios.get('/api/user')
+          axios.get(`/api/user/${this.id}`)
             .then((res) => {
               if (res.status === 200) {
                 this.users.splice(0)
