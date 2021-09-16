@@ -12,7 +12,7 @@
       <template #footer>
         <Button label="トピックを作成" v-on:click="toNewTopic" />
         <Button label="ログアウト" class="p-button-warning" v-on:click="logout" />
-        <Button label="退会" class="p-button-danger" v-on:click="withdraw" />
+        <Button label="退会" class="p-button-danger" v-on:click="withdraw" onclick='return confirm("削除しますか？");' />
       </template>
     </Card>
   </div>
