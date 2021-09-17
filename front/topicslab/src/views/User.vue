@@ -51,6 +51,7 @@ export default {
               } else {
                 console.log('取得失敗')
               }
+              console.log(res)
             })
             .catch((err) => {
               console.log(err)
