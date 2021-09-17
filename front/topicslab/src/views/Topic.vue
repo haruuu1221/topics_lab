@@ -50,15 +50,14 @@ export default {
   },
   mounted () {
     if (localStorage.getItem('authenticated') !== 'true') {
-      this.$router.push('../login')
+      this.$router.push('/Login')
       return
     }
-
     this.id = this.$route.params.id
     if (!this.id) {
       alert('不正なIDです。')
     }
-    this.getUser()
+    this.getTopic()
   },
   methods: {
     likeSubmit () {
