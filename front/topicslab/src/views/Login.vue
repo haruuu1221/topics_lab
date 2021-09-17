@@ -61,7 +61,7 @@ export default {
             .catch((err) => {
               console.log(err)
               this.message = 'ログインに失敗しました。'
-              alert(err)
+              alert('ログイン失敗')
             })
         })
         .catch((err) => {

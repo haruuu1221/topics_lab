@@ -61,6 +61,7 @@ export default {
   },
   methods: {
     likeSubmit () {
+      console.log(this.id)
       axios.get('/sanctum/csrf-cookie')
         .then(() => {
           axios.post('/api/topiclike', {
@@ -76,7 +77,7 @@ export default {
             .catch((err) => {
               console.log(err)
               this.message = '送信に失敗しました。'
-              alert(err)
+              alert('送信に失敗しました。')
             })
         })
         .catch((err) => {

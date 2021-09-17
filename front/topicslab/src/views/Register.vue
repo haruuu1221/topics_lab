@@ -69,7 +69,7 @@ export default {
             .catch((err) => {
               console.log(err)
               this.message = 'ユーザー登録に失敗しました。'
-              alert(err)
+              alert('ユーザー登録に失敗しました。')
             })
         })
         .catch((err) => {
