@@ -12,12 +12,12 @@
 
 <script>
 import axios from '@/supports/axios'
-import Tabmenu from '@/components/Tabmenu'/* eslint-disable */
+import Tabmenu from '@/components/Tabmenu'
 
 export default {
   name: 'user',
   components: {
-  Tabmenu/* eslint-disable */
+    Tabmenu
   },
   data () {
     return {
